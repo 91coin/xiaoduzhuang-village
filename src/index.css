@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* 小杜庄村 - 设计系统 */
+:root {
+  /* 大地色系 */
+  --wheat-gold: #d4a574;
+  --wheat-light: #e8c9a5;
+  --earth-brown: #8b6f47;
+  --brick-red: #a0523f;
+  --soil-dark: #4a3728;
+  --leaf-green: #6b8c42;
+  --sky-blue: #87ceeb;
+  --warm-white: #f9f6f1;
+  --paper-beige: #f5f0e8;
+}
+
+@theme inline {
+  --color-wheat-gold: #d4a574;
+  --color-wheat-light: #e8c9a5;
+  --color-earth-brown: #8b6f47;
+  --color-brick-red: #a0523f;
+  --color-soil-dark: #4a3728;
+  --color-leaf-green: #6b8c42;
+  --color-sky-blue: #87ceeb;
+  --color-warm-white: #f9f6f1;
+  --color-paper-beige: #f5f0e8;
+  
+  --font-display: 'Noto Serif SC', serif;
+  --font-body: 'Noto Sans SC', sans-serif;
+}
+
+/* 基础样式 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--warm-white);
+  color: var(--soil-dark);
+  overflow-x: hidden;
+}
+
+/* 渐变背景 */
+.gradient-hero {
+  background: linear-gradient(135deg, var(--warm-white) 0%, var(--paper-beige) 50%, var(--wheat-light) 100%);
+}
+
+.gradient-earth {
+  background: linear-gradient(180deg, var(--earth-brown) 0%, var(--soil-dark) 100%);
+}
+
+.gradient-wheat {
+  background: linear-gradient(135deg, var(--wheat-gold) 0%, var(--wheat-light) 100%);
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 165, 116, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(74, 55, 40, 0.08);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(74, 55, 40, 0.15);
+  border-color: var(--wheat-gold);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--brick-red) 0%, var(--earth-brown) 100%);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(160, 82, 63, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(160, 82, 63, 0.4);
+}
+
+/* 文字渐变 */
+.text-gradient {
+  background: linear-gradient(135deg, var(--brick-red) 0%, var(--wheat-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 装饰元素 */
+.decoration-grain {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 动画关键帧 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wheat-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--earth-brown);
+}
